@@ -1,0 +1,41 @@
+<p>arrayedit works!</p>
+<form #myform=ngForm (ngSubmit)="onSubmit(myform)" class="container">
+    <div>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1"></span>
+            <input [(ngModel)]="id" name="id" #refid="ngModel" type="text" class="form-control" placeholder="id" aria-label="Username"
+                aria-describedby="basic-addon1" required   [ngClass]="{'is-invalid': submitClick  && refid?.invalid}" (keypress)="onlyNumber($event)" >   
+        </div>
+       
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1"></span>
+            <input class="m-1" [(ngModel)]="Username" name="Username" #refname = "ngModel" type="text" class="form-control" placeholder="Username"
+                aria-label="Username" aria-describedby="basic-addon1" required  [ngClass]="{'is-invalid': submitClick && refname?.invalid}">
+        </div>
+        <button type="button" class="btn btn-primary m-1" (click)="cancel()">Cancel</button>
+        <button type="submit" class="btn btn-primary m-1" *ngIf="editClick == false" > Submit </button>
+        <button type="button" class="btn btn-warning m-1" *ngIf="editClick == true" (click)="update(id,myform)" > Edit </button>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Id</th>
+                <th scope="col">User Name</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of submitArray ; let i = index">
+                <th scope="row">{{i+1}}</th>
+                <td>{{user.id}}</td>
+                <td>{{user.Username}}</td>
+                <td>
+                    <button type="button" class="btn btn-success" name="user.id" (click)="edit(user.id,myform)">
+                        Edit</button>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</form>

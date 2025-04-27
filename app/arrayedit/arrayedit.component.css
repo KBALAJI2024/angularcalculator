@@ -1,0 +1,19 @@
+
+
+.errormsg{
+    color: red ;
+    font-size: 15px;
+}
+
+.container{
+      display: block;
+      width: 100%;
+      height: 100vh;
+      border: 1px solid gold;
+      border-radius: 5px;
+      background-color: aquamarine;
+      color: white;
+      align-items: center;
+      justify-content: center;
+     
+}

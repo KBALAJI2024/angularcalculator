@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style></style>
+</head>
+<body>
+    <div class="container">
+            <div class="uppercase">
+               
+                <img *ngIf="celcus < 14" src="assets/image/cold.png" width="100%" height="100%" alt="Cold weather">
+                <img *ngIf="celcus > 14" src="assets/image/summer.png" width="100%" height="100%"  alt="Summer weather">
+                <div class="weatherdata">
+                    <div class="input">
+                        <input type="text" [(ngModel)]="place" class="transparent-input" placeholder="Search Place">
+                        <button type="button" class="btn btn-outline-primary m-2 p-2" (click)="search()"> Submit </button>
+                    </div>
+                    
+                    <i class="bi bi-geo-alt"></i>
+                    <div class="place">{{apiPlace}}</div>
+                    <div class="temprature" *ngIf="celcus">{{(celcus | number: '1.0-0')?.toString()?.slice(0,2) }}°C</div>
+                </div>
+               
+             </div>
+             <div class="weather-container">
+               
+                    <label class="moreinfo" >More Information</label>
+              
+                <div class="weather-row">
+                    <div class="weather-item">
+                        <img src="assets/image/temperature.png" width="30px" height="30px" alt="cold" class="coldTemprature">
+                        <div class="weather-label">Max temprature</div>
+                        <div class="weather-value">{{max_tem}}</div>
+                    </div>
+                    <div class="weather-item">
+                        <img src="assets/image/high-temperature.png" width="40px" height="30px" alt="cold" class="coldTemprature">
+                        <div class="weather-label">Min temprature</div>
+                        <div class="weather-value">{{min_tem}}</div>
+                    </div>
+                </div>
+                <div class="weather-row">
+                    <div class="weather-item">
+                        <img src="assets/image/water-drop.png" width="30px" height="30px" alt="cold" class="coldTemprature">
+                        <div class="weather-label">hymidity</div>
+                        <div class="weather-value">{{humidity}} %</div>
+                    </div>
+                    <div class="weather-item">
+                        <img src="assets/image/wind.png" width="30px" height="30px" alt="cold" class="coldTemprature">
+                        <div class="weather-label">wind speed</div>
+                        <div class="weather-value">{{windSpeed}} km/h</div>
+                    </div>
+                </div>
+            </div>
+       
+       
+    </div>
+</body>
+</html>
